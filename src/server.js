@@ -1,9 +1,13 @@
 const express = require("express");
 require("dotenv").config();
 
+const toolRoutes = require("./routes/toolRoutes");
+
 const app = express();
 
 app.use(express.json());
+
+app.use("/api/tools", toolRoutes);
 
 app.get("/", (req, res) => {
     res.json({
